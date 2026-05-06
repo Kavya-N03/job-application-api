@@ -20,6 +20,7 @@ exports.applyJob = asyncHandler(async(req,res)=>{
     if(!req.file){
         throw new ErrorResponse("Please upload your resume",400);
     }
+    console.log(req.file);
 
     let fileUrl;
 

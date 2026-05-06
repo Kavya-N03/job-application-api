@@ -12,8 +12,7 @@ if (process.env.NODE_ENV === 'production') {
         cloudinary,
         params: {
             folder: 'jobportal-resumes',
-            resource_type: 'raw',
-            allowed_formats: ['pdf']
+            resource_type: 'raw'
         }
     });
 

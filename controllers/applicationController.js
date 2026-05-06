@@ -21,8 +21,14 @@ exports.applyJob = asyncHandler(async(req,res)=>{
         throw new ErrorResponse("Please upload your resume",400);
     }
 
+    let fileUrl;
+
+    if (process.env.NODE_ENV === 'production') {
+    fileUrl = req.file.path;
+    } else {
     const baseUrl = `${req.protocol}://${req.get('host')}`;
-    const fileUrl = `${baseUrl}/${req.file.path.replace(/\\/g,"/")}`;
+    fileUrl = `${baseUrl}/${req.file.path.replace(/\\/g, "/")}`;
+    }
 
     const jobAvailable = await Job.findById(jobId);
     if(!jobAvailable){

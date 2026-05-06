@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'production') {
     cloudinary,
     params: async (req, file) => ({
         folder: 'jobportal-resumes',
-        resource_type: 'raw',
+        resource_type: 'auto',
         public_id: Date.now() + '-' + file.originalname
     })
     });

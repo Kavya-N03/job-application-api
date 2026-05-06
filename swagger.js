@@ -12,13 +12,14 @@ const options = {
 
     servers: [
       {
+        url: 'https://job-application-api-9dp4.onrender.com/',
+        description: "Production server"
+      },
+      {
         url: 'http://localhost:5000',
         description: "Local server"
       },
-      {
-        url: '',
-        description: "Live server"
-      }
+      
     ],
 
     components: {

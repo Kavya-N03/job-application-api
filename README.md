@@ -26,34 +26,38 @@ This API allows users to register, authenticate, manage companies and jobs, and 
 * Authentication: JSON Web Tokens (JWT)
 * Validation: Joi
 * File Upload: Multer
+* Cloud Storage: Cloudinary
 
 ---
 
 ## Project Structure
 
+```bash
 project-root/
-├── config
+│
+├── config/
 ├── controllers/
-├── docs
+├── docs/
+├── middleware/
 ├── models/
 ├── routes/
-├── middleware/
 ├── uploads/
 ├── utils/
 ├── validators/
-└── server.js
-
-````
+├── server.js
+```
 
 ---
 
 ## Installation
 
 ```bash
-git clone 
-cd 
+git clone https://github.com/Kavya-N03/job-application-api.git
+
+cd job-application-api
+
 npm install
-````
+```
 
 ---
 
@@ -65,6 +69,10 @@ Create a `.env` file in the root directory:
 PORT=5000
 MONGODB_URL=your_mongodb_connection_string
 SECRET_ACCESS=your_secret_key
+NODE_ENV=development
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 ```
 
 ---
@@ -125,4 +133,5 @@ Authorization: Bearer <token>
 ## File Upload
 
 * Resume uploads handled using Multer
-* Files stored in `/uploads`
+* During development, files are stored in the /uploads folder
+* In production/deployment, resumes are stored using Cloudinary

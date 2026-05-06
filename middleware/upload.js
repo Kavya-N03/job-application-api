@@ -9,11 +9,12 @@ if (process.env.NODE_ENV === 'production') {
     const cloudinary = require('../config/cloudinary');
 
     storage = new CloudinaryStorage({
-        cloudinary,
-        params: {
-            folder: 'jobportal-resumes',
-            resource_type: 'raw'
-        }
+    cloudinary,
+    params: async (req, file) => ({
+        folder: 'jobportal-resumes',
+        resource_type: 'raw',
+        public_id: Date.now() + '-' + file.originalname
+    })
     });
 
 } else {

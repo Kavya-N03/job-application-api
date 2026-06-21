@@ -29,7 +29,7 @@ exports.createJob = asyncHandler(async(req,res)=>{
 
 
 exports.getAllJobs = asyncHandler(async(req,res)=>{
-    const jobs = await Job.find();
+    const jobs = await Job.find().populate('company');
     res.status(200).json({jobs});
 });
 

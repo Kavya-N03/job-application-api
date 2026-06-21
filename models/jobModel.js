@@ -11,8 +11,29 @@ const jobSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    salary:{
+    min_salary:{
         type:Number
+    },
+    max_salary:{
+        type:Number
+    },
+
+    skills:{
+        type:[String]
+    },
+    experience:{
+        type:String
+    },
+
+    responsibilities:{
+        type:[String]
+    },
+
+    roles:{
+        type:[String]
+    },
+    benefits:{
+        type:[String]
     },
     company:{
         type:mongoose.Schema.ObjectId,

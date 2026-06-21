@@ -45,7 +45,7 @@ exports.updateJob = asyncHandler(async(req,res)=>{
     const updatedJob = await Job.findByIdAndUpdate(
         req.params.id,
         req.body,
-        {new:true,runValidators:true}
+        {returnDocument:'after'}
     );
     if(!updatedJob){
         throw new ErrorResponse("Job not found",404);

@@ -34,11 +34,11 @@ exports.getAllJobs = asyncHandler(async(req,res)=>{
 });
 
 exports.getJobById = asyncHandler(async(req,res)=>{
-    const job = await Job.findById(req.params.id);
+    const job = await Job.findById(req.params.id).populate('company');
     if(!job){
         throw new ErrorResponse("Job not found",404);
     }
-    return res.status(200).json(job)
+    return res.status(200).json(job);
 })
 
 exports.updateJob = asyncHandler(async(req,res)=>{
